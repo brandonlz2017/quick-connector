@@ -1,0 +1,19 @@
+from intuitlib.client import AuthClient
+from quickbooks import QuickBooks
+import os
+
+auth_client = AuthClient(
+    client_id='ABrWneIZutckh2FSFDa1Qsp2Ud6JZGKjEkA9rOa144QvdrfmgW',
+    client_secret='HNFvyg8OFcQkHELNfAGARzWgXKAge01OnWAtdCsc',
+    #access_token='eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..FymnMIdtnS6sOHAn5cOFew.xXMfkcbt6oji8XvzO2mi2yZ65-lHkJPiWArukPOOnsMxvlJlqh3gjyFLwWtzKGFiy68-mhiCImPrdUeb57b7pxp1TMy8b4KCwEwIEZimVijcEfNLfDuleQvVGskZR6apBJKq9PF6CkiQcm96x5yDR5ibhAKuselHdWiBz9qTDLYfsVmuXMzCIgJ5SHWS-0DkXutyVisbXTHj4Qpozc4pCpcqmu0s-E7iY_neflf7CnybzdgO2msbCwDAqnl0tXnpIb_bNvuSnHy-DYLfQagp72oWiU0CcHwMaIk3BKuEhRdK8LBiTeKY4rfxrVIMR7c7gwVjmMGN2ypTQSNkiNqqDuFAOxX-xoaLWaTY9fEeFPDF9cjG3tIyFbkmu_Mhv0hr1tZPDtNMjZW6T-jjD766aV9qi55u3bs1JMgxUsm9S9f1wx7TxXlu-F9Y2UD9GJfmHHcgkFytA21-0p8xmK0Qm12ejln6Gtna7rzfgCpNkpv2zEVR7WZqYyEZR1uDUKka2BdpmHaGC0E5INyP6T_iEYp9KbCv-MNtRORp_D611KA464DOl35ufwWTNrDi1CEStxeE3m3E-AMKLOdeD-VpHD6qNT2Usd2R9-y80K_bbl1q2mU8zuT7XPEoW--nP9ViicoRUFTrD3JrqYN4GXIbFeHPa_TG50iww8siuA85lc7LfMe7ExmYP_bvm9mPBDYuM8LcUi_P7a9a0109ukZZhRDuXwnThpYqq4_28d2GKJCrngIimFbsM07qufH6xkshMWHaOLt5JM5hIsSDgkCdv1k8gB7P5ri6ZkeNyldKs3utwOLSuPASPXeEo6lHfCeno0TSftrfeaMwSLbVgoE33-O3_u70CBMGM9v9U4t7jeTPtkqV-DwvaTaKntN-CllX.3tlSOsrOlyO23sPXp6087A',
+    environment='sandbox',
+    redirect_uri='https://developer.intuit.com/v2/OAuth2Playground/RedirectUrl',
+)
+
+client = QuickBooks(
+    auth_client=auth_client,
+    auth_client.refresh(refresh_token='AB116811630620PpQ1aeakw0elRAfeIhHCXa1NopBeBYjqKPBl'),
+    company_id='Brandon Zeman',
+)
+
+client.get_report(report_type='ProfitAndLoss')
