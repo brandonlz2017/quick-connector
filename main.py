@@ -13,7 +13,7 @@ auth_client = AuthClient(
 client = QuickBooks(
     auth_client=auth_client,
     auth_client.refresh(refresh_token='AB116811630620PpQ1aeakw0elRAfeIhHCXa1NopBeBYjqKPBl'),
-    company_id='Brandon Zeman',
+    company_id=4620816365266151130,
 )
 
 client.get_report(report_type='ProfitAndLoss')
